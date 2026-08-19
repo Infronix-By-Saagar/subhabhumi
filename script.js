@@ -14,5 +14,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     note.textContent=`Thank you, ${name.split(" ")[0]}. Your enquiry is ready to send.`;
     form.reset();
   });
+  document.querySelectorAll(".faq-item").forEach(item=>{
+    const btn=item.querySelector(".faq-q");
+    btn?.addEventListener("click",()=>{
+      const willOpen=!item.classList.contains("open");
+      item.classList.toggle("open",willOpen);
+      btn.setAttribute("aria-expanded",willOpen);
+    });
+  });
   const year=document.getElementById("year"); if(year) year.textContent=new Date().getFullYear();
 });
